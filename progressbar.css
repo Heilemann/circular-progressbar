@@ -1,0 +1,48 @@
+/* PROGRESS BAR */
+
+.progressbar .side {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.progressbar .mask {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progressbar .bar {
+  box-sizing: border-box;
+  height: 100%;
+  width: 200%;
+  border: 10px solid black;
+  border-radius: 100%;
+}
+
+.progressbar .right {
+  right: 0;
+}
+
+.progressbar .right .bar {
+  float: right;
+}
+
+.progressbar .right .mask {
+  transform-origin: 0 50%;
+  transform: rotate(-180deg);
+}
+
+.progressbar .left {
+  left: 0;
+}
+
+.progressbar .left .bar {
+  float: left;
+}
+
+.progressbar .left .mask {
+  transform-origin: 100% 50%;
+  transform: rotate(-180deg);
+}

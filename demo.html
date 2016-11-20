@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .circle {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+      border-radius: 100%;
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circle"></div>
+
+  <link href="progressbar.css" rel="stylesheet" media="screen" title="no title">
+  <script src="progressbar.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    var bar = new CircleProgressBar(document.querySelector('.circle'));
+    // bar.setDegrees('235');
+    bar.setProgressOfTotal(14, 24);
+  </script>
+</body>
+</html>
