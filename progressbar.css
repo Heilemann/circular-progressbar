@@ -1,4 +1,9 @@
 /* PROGRESS BAR */
+.progressbar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 
 .progressbar .side {
   position: absolute;

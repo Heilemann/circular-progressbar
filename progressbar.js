@@ -1,5 +1,5 @@
 function CircleProgressBar (element) {
-  /* first we build the dom structure we need to create the progress bar
+  /* we need to build the dom structure to create the progress bar
      that'll looks like this:
 
       <div class="progressbar">
@@ -44,7 +44,7 @@ function CircleProgressBar (element) {
   barRightEl.className = 'bar';
   maskRightEl.appendChild(barRightEl);
 
-  // these are the elements we are actually going to manipulate
+  // we'll just use these elements to manipulate the rotation
   this.right = element.querySelector('.right').querySelector('.mask');
   this.left = element.querySelector('.left').querySelector('.mask');
 }
@@ -57,14 +57,17 @@ CircleProgressBar.prototype.setDegrees = function (degrees) {
   degrees = degrees % 360;
 
   // figure out how much each half has to rotate (from 0)
-  var rightDegrees = degrees > 180 ? 180 : degrees;
-  var leftDegrees  = degrees < 180 ? 0   : degrees % 180;
+  if (degrees > 180) {
+    var rightDegrees = 180;
+    var leftDegrees = degrees - 180;
+  } else {
+    var rightDegrees = degrees;
+    var leftDegrees = 0;
+  }
 
   // figure in the -180˚ rotation that is our real 0
   var rightDegrees = rightDegrees - 180;
   var leftDegrees  = leftDegrees - 180;
-
-  console.log(['rightDegrees', rightDegrees, 'leftDegrees', leftDegrees]);
 
   // rotatin' time!
   this.right.style.transform = 'rotate('+rightDegrees+'deg)';
